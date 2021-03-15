@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+
+    Creer votre compte
+
+    {% endblock %}
+
+
+    {% block body %}
+
+    <h1>Creer votre compte </h1>
+
+
+    {{ form_start(formRegistration) }}
+
+
+        {{ form_row(formRegistration.username) }}
+         {{ form_row(formRegistration.email) }}
+          {{ form_row(formRegistration.password) }}
+           {{ form_row(formRegistration.confirm_password) }}
+
+           <button type="submit" class="btn btn-secondary">Continuer</button>
+
+     {{ form_end(formRegistration) }}
+
+    {% endblock %}
