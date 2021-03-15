@@ -20,7 +20,7 @@
 
         <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="{{ path('blog_create') }}">ajout</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -30,6 +30,28 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{ path('home') }}">Home <span class="sr-only">(current)</span></a>
       </li>
+
+
+      {% if app.user %}
+
+     <li class="nav-item">
+        <a class="nav-link" href="">Mon compte</a>
+      </li>
+
+      
+      {% else %}
+
+           <li class="nav-item">
+        <a class="nav-link" href="{{ path('security_registration') }}">Creer votre compte</a>
+      </li>
+              <li class="nav-item">
+        <a class="nav-link" href="{{ path('security_login') }}">Identifiez vous</a>
+      </li>
+      
+      {% endif %}
+      
+
+
       <li class="nav-item">
         <a class="nav-link" href="{{ path('blog') }}">Affichage des articles</a>
       </li>
@@ -44,6 +66,18 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
+
+        {% if app.user %}
+        
+        
+              <li class="nav-item">
+        <a class="nav-link" href="{{ path('security_logout') }}">Logout</a>
+      </li>
+        
+        {% endif %}
+        
+
+
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li>
