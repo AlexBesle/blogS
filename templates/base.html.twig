@@ -67,6 +67,21 @@
         </div>
       </li>
 
+
+
+        {% if is_granted('ROLE_ADMIN') %}
+        
+        
+            
+              <li class="nav-item">
+        <a class="nav-link" href="{{ path('admin') }}">Backoffice</a>
+      </li>
+        
+        
+        {% endif %}
+        
+
+
         {% if app.user %}
         
         
