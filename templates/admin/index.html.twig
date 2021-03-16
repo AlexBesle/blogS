@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue dans le BackOffice{% endblock %}
+
+{% block body %}
+
+
+
+<div class="container">
+
+
+    <h1 class="display-4 text-center my-5">BACKOFFICE</h1>
+
+    <h4 class="text-center">
+    Bienvenue
+
+    {% if app.user %}
+    
+        <span class="text-info">{{ app.user.username }} </span>
+
+
+
+        dans votre espace perso
+    
+    
+    {% endif %}
+    
+
+
+    </h4>
+
+    <div class="text-center">
+
+
+    <a href="{{ path('admin_articles') }}" class="col-md-4 btn btn-dark mb-2">GESTION DES ARTICLES</a>
+
+    <a href="" class="col-md-4 btn btn-success mb-2">GESTION DES MEMBRES</a>
+    
+
+
+ 
+
+</div>
+
+
+{% endblock %}

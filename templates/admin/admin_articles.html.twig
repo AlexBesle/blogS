@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %}
+        BACKOFFICE | Gestion des articles
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="display-4 text-center my-5">BACKOFFICE | Gestion des articles</h1>
+
+    <table class="table table-bordered text-center">
+
+            <tr>
+                    {% for oneColonne in colonnes %}
+
+                    {% if oneColonne == 'createdAt' %}
+                    
+                        <th>DATE</th>
+
+                        {% else %}
+                            
+
+                    <th>{{ oneColonne|upper }}</th>
+
+
+                    {% endif %}
+                        
+                    {% endfor %}
+
+            </tr>
+
+            {% for oneArticle in articlesBdd %}
+
+                    <tr>
+
+                        <td>{{ oneArticle.id }}</td>
+                        <td>{{ oneArticle.title}}</td>
+                        <td>{{ oneArticle.content|striptags }}...</td>
+                        <td><img src="{{ oneArticle.image }}" class="img-admin-articles" ></td>
+                        <td>{{ oneArticle.createdAt|date('d/m/Y à H:i:s') }}</td>
+                        
+                    </tr>
+
+                
+            {% endfor %}
+
+
+    </table>
+
+
+{% endblock %}
